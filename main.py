@@ -17,4 +17,6 @@ for organismo in organismos:
     print(f"Nome: {organismo.nome}")
     print(f"tamanho: {organismo.sequencia.calcular_tamanho()}")
     print(f"GC: {organismo.sequencia.calcular_gc():.2f}%")
+    print('O tamanho da sequência é:', organismo.sequencia.calcular_tamanho(), 'nucleotídeos')
+    
 
