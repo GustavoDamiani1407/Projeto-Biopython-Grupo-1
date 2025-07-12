@@ -1,3 +1,7 @@
+# Importa as bibliotecas de constantes
+from bio.constantes import DNA_PARA_AMINOACIDO
+from bio.constantes import DNA_STOP_CODONS
+
 class Sequencia:
 
     def __init__(self, sequencia):
@@ -34,4 +38,16 @@ class Sequencia:
     
     def sequencia_complementar_invertida(self):
         return self.sequencia_complementar()[::-1]
-
+    
+    def calcular_porcentagem_bases(self): # calcula porcentagagem de cada base
+        total = len(self.sequencia)
+        if total == 0:
+            return {}
+        porcentagens = {}
+        for base in 'ATCG':
+            porcentagens[base] = (self.sequencia.count(base) / total) * 100
+        return porcentagens
+    
+    def transcrever(self):
+        return self.sequencia.replace('T', 'U')
+    
