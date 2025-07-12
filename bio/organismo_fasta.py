@@ -7,4 +7,4 @@ class OrganismoFasta:
     """
     Criar
     """
-# saudades da minha ex
+# Salve
