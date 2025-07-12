@@ -27,4 +27,8 @@ class Sequencia:
     def calcular_gc(self):
         gc_count = self.sequencia.count('G') + self.sequencia.count('C')
         return (gc_count / len(self.sequencia)) * 100 if len(self.sequencia) > 0 else 0
+    
+    def sequencia_complementar(self):
+        complementos = {'A': 'T', 'T': 'A', 'C': 'G', 'G': 'C'}
+        return ''.join(complementos[nucleo] for nucleo in self.sequencia)
 
