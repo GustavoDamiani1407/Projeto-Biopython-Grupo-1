@@ -17,4 +17,4 @@ for organismo in organismos:
     print(f"ID: {organismo.id}")
     print(f"Nome: {organismo.nome}")
     print(f"Sequência: {organismo.sequencia[:50]}...")  
->>>>>>> 35c5f254f79c8ebb156fa71c578c3ee3fabdd276
+
