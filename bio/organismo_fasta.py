@@ -4,6 +4,3 @@ class OrganismoFasta:
         self.nome = nome
         self.sequencia = sequencia
         
-    """
-    Criar
-    """
