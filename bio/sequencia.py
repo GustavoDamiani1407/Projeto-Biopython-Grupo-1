@@ -20,3 +20,10 @@ class Sequencia:
 
     def __getitem__(self, index):
         return self.sequencia.__getitem__(index)
+    
+    def calcular_tamanho(self):
+        return len(self.sequencia)
+    
+    def calcular_gc(self):
+        gc_count = self.sequencia.count('G') + self.sequencia.count('C')
+        return (gc_count / len(self.sequencia)) * 100 if len(self.sequencia) > 0 else 0

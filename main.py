@@ -15,7 +15,6 @@ print(organismos)
 for organismo in organismos:
     print(f"ID: {organismo.id}")
     print(f"Nome: {organismo.nome}")
-    print(f"Sequência: {organismo.sequencia[:50]}...")
-    
-    #Salve
+    print(f"tamanho: {organismo.sequencia.calcular_tamanho()}")
+    print(f"GC: {organismo.sequencia.calcular_gc():.2f}%")
 
