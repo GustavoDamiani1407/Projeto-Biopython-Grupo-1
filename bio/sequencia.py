@@ -31,4 +31,7 @@ class Sequencia:
     def sequencia_complementar(self):
         complementos = {'A': 'T', 'T': 'A', 'C': 'G', 'G': 'C'}
         return ''.join(complementos[nucleo] for nucleo in self.sequencia)
+    
+    def sequencia_complementar_invertida(self):
+        return self.sequencia_complementar()[::-1]
 
