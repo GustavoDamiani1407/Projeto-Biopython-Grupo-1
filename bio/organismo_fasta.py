@@ -7,4 +7,3 @@ class OrganismoFasta:
     """
     Criar
     """
-# Salve
