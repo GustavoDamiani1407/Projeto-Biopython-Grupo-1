@@ -73,15 +73,5 @@ def traduzir(self, parar=False):
             proteina.append("X")  
 
     return ''.join(proteina)
-    
-    
-    def traduzir(self):
-        aminoacidos = []
-        for i in range(0, len(self.sequencia) - 2, 3):
-            codon = self.sequencia[i:i+3]
-            if codon in DNA_STOP_CODONS:
-                aminoacidos.append('STOP')
-            aminoacido = DNA_PARA_AMINOACIDO.get(codon, None)
-            if aminoacido:
-                aminoacidos.append(aminoacido)
+
     
