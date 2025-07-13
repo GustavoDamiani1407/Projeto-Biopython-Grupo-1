@@ -32,22 +32,46 @@ class Sequencia:
         gc_count = self.sequencia.count('G') + self.sequencia.count('C')
         return (gc_count / len(self.sequencia)) * 100 if len(self.sequencia) > 0 else 0
     
-    def sequencia_complementar(self):
+    def complementar(self):
         complementos = {'A': 'T', 'T': 'A', 'C': 'G', 'G': 'C'}
-        return ''.join(complementos[nucleo] for nucleo in self.sequencia)
+        nova_seq = ''.join(complementos.get(n.upper(), 'N') for n in self.sequencia)
+        return Sequencia(nova_seq)
     
-    def sequencia_complementar_invertida(self):
-        return self.sequencia_complementar()[::-1]
-    
-    def calcular_porcentagem_bases(self): # calcula porcentagagem de cada base
+    def complementar_reversa(self):
+        return Sequencia(self.complementar().sequencia[::-1])
+
+    def calcular_percentual(self, bases):
         total = len(self.sequencia)
         if total == 0:
-            return {}
-        porcentagens = {}
-        for base in 'ATCG':
-            porcentagens[base] = (self.sequencia.count(base) / total) * 100
-        return porcentagens
+            return 0
+        count = sum(self.sequencia.upper().count(base.upper()) for base in bases)
+        return (count / total) * 100
     
     def transcrever(self):
-        return self.sequencia.replace('T', 'U')
+        sequencia_rna = self.sequencia.replace('T', 'U')
+        return Sequencia(sequencia_rna)
+    
+def traduzir(self, parar=False):
+    rna = self.transcrever().sequencia
+    proteina = []
+
+    for i in range(0, len(rna) - 2, 3):
+        codon = rna[i:i+3]
+
+        if codon in DNA_STOP_CODONS:
+            if parar:
+                break
+            else:
+                proteina.append("*")
+                continue
+
+        aminoacido = DNA_PARA_AMINOACIDO.get(codon)
+
+        if aminoacido:
+            proteina.append(aminoacido)
+        else:
+            proteina.append("X")  
+
+    return ''.join(proteina)
+    
     
