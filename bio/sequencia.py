@@ -35,3 +35,7 @@ class Sequencia:
     def sequencia_complementar_invertida(self):
         return self.sequencia_complementar()[::-1]
 
+    def sequencia_transcrita(self):
+        for i in sequencia_transcrita:
+            
+            
