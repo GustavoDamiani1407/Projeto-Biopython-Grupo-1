@@ -29,8 +29,33 @@ def resolver_problema_2():
 def resolver_problema_3():
     resultado_mutacao = solução_3(caminho_do_arquivo)
     print("\n[Problema 3] Relatório de mutação na posição 1000:")
-    print(f"Total com mutação (posição 1000 == 'G'): {len(resultado_mutacao['com_mutacao'])}")
-    print(f"Total sem mutação (posição 1000 == 'A'): {len(resultado_mutacao['sem_mutacao'])}")
+    com_mutacao = resultado_mutacao['com_mutacao']
+    sem_mutacao = resultado_mutacao['sem_mutacao']
+
+    # Geração dos arquivos TSV
+    with open("organismos_com_mutacao.tsv", "w", encoding="utf-8") as f_mut:
+        f_mut.write("ID\tNome\n")
+        for org in com_mutacao:
+            f_mut.write(f"{org.id}\t{org.nome}\n")
+
+    with open("organismos_sem_mutacao.tsv", "w", encoding="utf-8") as f_sem:
+        f_sem.write("ID\tNome\n")
+        for org in sem_mutacao:
+            f_sem.write(f"{org.id}\t{org.nome}\n")
+
+    print(f"Total com mutação (posição 1000 == 'G'): {len(com_mutacao)}")
+    if com_mutacao:
+        print("Organismos com mutação:")
+        for org in com_mutacao:
+            print(f"  - ID: {org.id}, Nome: {org.nome}")
+
+    print(f"Total sem mutação (posição 1000 == 'A'): {len(sem_mutacao)}")
+    if sem_mutacao:
+        print("Organismos sem mutação:")
+        for org in sem_mutacao:
+            print(f"  - ID: {org.id}, Nome: {org.nome}")
+
+    print("\nArquivos 'organismos_com_mutacao.tsv' e 'organismos_sem_mutacao.tsv' gerados com sucesso.")
 
 if __name__ == "__main__":
     while True:
