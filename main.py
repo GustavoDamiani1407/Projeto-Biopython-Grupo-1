@@ -32,7 +32,6 @@ def resolver_problema_3():
     com_mutacao = resultado_mutacao['com_mutacao']
     sem_mutacao = resultado_mutacao['sem_mutacao']
 
-    # Geração dos arquivos TSV
     with open("organismos_com_mutacao.tsv", "w", encoding="utf-8") as f_mut:
         f_mut.write("ID\tNome\n")
         for org in com_mutacao:
@@ -43,13 +42,13 @@ def resolver_problema_3():
         for org in sem_mutacao:
             f_sem.write(f"{org.id}\t{org.nome}\n")
 
-    print(f"Total com mutação (posição 1000 == 'G'): {len(com_mutacao)}")
+    print(f"Total com mutação: {len(com_mutacao)}")
     if com_mutacao:
         print("Organismos com mutação:")
         for org in com_mutacao:
             print(f"  - ID: {org.id}, Nome: {org.nome}")
 
-    print(f"Total sem mutação (posição 1000 == 'A'): {len(sem_mutacao)}")
+    print(f"Total sem mutação: {len(sem_mutacao)}")
     if sem_mutacao:
         print("Organismos sem mutação:")
         for org in sem_mutacao:
